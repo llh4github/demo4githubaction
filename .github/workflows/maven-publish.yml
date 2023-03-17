@@ -34,6 +34,7 @@ jobs:
         server: ${{ secrets.SERVER_IP }}
         ssh_private_key: ${{ secrets.TX_PRIVATE_KEY }}
         local_path: './target/*.jar'
+        password: ${{ secrets.TX_LIGHT_PWD }}
         remote_path: '/home/ubuntu/tmp'
          
       
