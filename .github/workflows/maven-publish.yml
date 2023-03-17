@@ -26,4 +26,15 @@ jobs:
 
     - name: Build with Maven
       run: mvn -B  -DskipTests package --file pom.xml
+      
+    - name: SFTP Deploy
+      uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      with:
+        username: root
+        server: '${{ secrets.SERVER_IP }}'
+        ssh_private_key: ${{ secrets.tx_private_key }}
+        local_path: './target/*.jar'
+        remote_path: '/home/ubuntu/tmp'
+         
+      
 
